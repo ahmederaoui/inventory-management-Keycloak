@@ -1,0 +1,33 @@
+services:
+  mysql-db-inventory:
+    image: mariadb:10.6
+    container_name: mysql-db-customer
+    restart: always
+    volumes:
+      - mysql_data_customer:/var/lib/mysql
+    environment:
+      MYSQL_DATABASE: customer-db
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 1234
+      MYSQL_ROOT_PASSWORD: admin
+    ports:
+      - 3306:3306
+    expose:
+      - 3306
+    healthcheck:
+      test: [ "CMD", "mysqladmin" ,"ping", "-h", "localhost" ]
+      timeout: 5s
+      retries: 10
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 9999:80
+    expose:
+      - 9999
+    environment:
+      PMA_HOST: mysql-db-customer
+      PMA_PORT: 3306
+      PMA_ARBITRARY: 1
+volumes:
+  mysql_data_customer:
