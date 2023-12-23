@@ -3,7 +3,7 @@
 ## Project Overview
 This project implements an inventory management system using a microservices architecture. It integrates various technical services and authentication mechanisms, deployed using Docker.
 
-![img.png](img.png)
+![img_1.png](img_1.png)
 
 ## Microservices Architecture
 - **Discovery Service**: Implemented with Eureka Server for service registration and discovery.
