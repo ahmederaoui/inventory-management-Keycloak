@@ -32,3 +32,10 @@ mvn clean package
 ```shell
 docker compose up -d
 ```
+## Customer Service Test
+
+![img_2.png](img_2.png)
+
+## inventory Service Test
+
+![img_3.png](img_3.png)
